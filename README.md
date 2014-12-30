@@ -3,7 +3,7 @@ UUKeyboardInputView
 
 It helps some view who isn't have textField or texeView to input words
 
-###Apply
+###apply in my app
 ![Flipboard playing multiple GIFs](https://github.com/ZhipingYang/UUKeyboardInputView/raw/master/UUKeyboardInputViewTests/inputView.gif)
 
 ## Installation
@@ -11,14 +11,20 @@ It helps some view who isn't have textField or texeView to input words
   + (void)showBlock:(UUInputAccessoryBlock)block;
   + (void)showKeyboardType:(UIKeyboardType)type Block:(UUInputAccessoryBlock)block;
 
+####UIKeyboardType
+ - UIKeyboardTypeDefault,              
+ - UIKeyboardTypeNumbersAndPunctuation,
+ - UIKeyboardTypeNumberPad,            
+ - UIKeyboardTypeNamePhonePad ...
+
 ## Usage
 
     [UUInputAccessoryView showKeyboardType:UIKeyboardTypeNamePhonePad
                                      Block:^(NSString *contentStr) {
-                                         if (contentStr.length==0) return ;
-                 //code
+            if (contentStr.length==0) return ;
+            //code
        }];
     
     [UUInputAccessoryView showBlock:^(NSString *contentStr) {
-       //code
-    }];
+          //code
+      }];
