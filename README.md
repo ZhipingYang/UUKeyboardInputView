@@ -3,7 +3,8 @@ UUKeyboardInputView
 
 It helps some view who isn't have textField or texeView to input words
 
-![Flipboard playing multiple GIFs](https://github.com/ZhipingYang/UUKeyboardInputView/tree/master/UUKeyboardInputViewTests/inputView.gif)
+###Apply
+![Flipboard playing multiple GIFs](https://github.com/ZhipingYang/UUKeyboardInputView/raw/master/UUKeyboardInputViewTests/inputView.gif)
 
 ## Installation
 
