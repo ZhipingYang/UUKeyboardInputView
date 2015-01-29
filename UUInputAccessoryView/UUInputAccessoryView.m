@@ -87,12 +87,14 @@
 
     [window addSubview:btnBack];
 }
+
 - (void)Done
 {
     [inputView resignFirstResponder];
     inputBlock(inputView.text);
     [self dismiss];
 }
+
 - (void)firstRes:(id)sender
 {
     [inputView becomeFirstResponder];

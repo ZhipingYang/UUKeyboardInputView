@@ -21,15 +21,13 @@
 }
 - (IBAction)click:(UIButton *)sender {
     
-    [UUInputAccessoryView showKeyboardType:sender.tag==1?UIKeyboardTypeDefault:UIKeyboardTypeNamePhonePad
+    UIKeyboardType type = sender.tag == 1 ? UIKeyboardTypeDefault : UIKeyboardTypeNumberPad;
+    [UUInputAccessoryView showKeyboardType:type
                                      Block:^(NSString *contentStr) {
                                          if (contentStr.length==0) return ;
                                          [sender setTitle:contentStr forState:UIControlStateNormal];
     }];
     
-    [UUInputAccessoryView showBlock:^(NSString *contentStr) {
-       //code
-    }];
 }
 
 
