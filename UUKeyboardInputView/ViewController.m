@@ -9,31 +9,20 @@
 #import "ViewController.h"
 #import "UUInputAccessoryView.h"
 
-@interface ViewController ()
-
-@end
-
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
 - (IBAction)click:(UIButton *)sender {
     
-    UIKeyboardType type = sender.tag == 1 ? UIKeyboardTypeDefault : UIKeyboardTypeNumberPad;
-    [UUInputAccessoryView showKeyboardType:type
-                                     Block:^(NSString *contentStr) {
-                                         if (contentStr.length==0) return ;
-                                         [sender setTitle:contentStr forState:UIControlStateNormal];
-    }];
+    UIKeyboardType type = sender.tag == 1 ? UIKeyboardTypeNumberPad : UIKeyboardTypeDefault;
+    NSString *content = sender.tag == 2 ? [sender titleForState:UIControlStateNormal] : @"";
     
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [UUInputAccessoryView showKeyboardType:type
+                                   content:content
+                                     Block:^(NSString *contentStr)
+    {
+        if (contentStr.length == 0) return ;
+        [sender setTitle:contentStr forState:UIControlStateNormal];
+    }];
 }
 
 @end
