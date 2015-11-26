@@ -24,6 +24,9 @@
     UITextField *inputView;
     UITextField *assistView;
     UIButton *BtnSave;
+    
+    // dirty code for iOS9
+    BOOL shouldDismiss;
 }
 @end
 
@@ -100,12 +103,15 @@
     inputView.keyboardType = type;
     assistView.keyboardType = type;
     [assistView becomeFirstResponder];
+    shouldDismiss = NO;
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardDidShowNotification
                                                       object:nil
                                                        queue:nil
                                                   usingBlock:^(NSNotification * _Nonnull note) {
-                                                      [inputView becomeFirstResponder];
+                                                      if (!shouldDismiss) {
+                                                          [inputView becomeFirstResponder];
+                                                      }
                                                   }];
 }
 
@@ -124,6 +130,7 @@
 
 - (void)dismiss
 {
+    shouldDismiss = YES;
     [inputView resignFirstResponder];
     [btnBack removeFromSuperview];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
