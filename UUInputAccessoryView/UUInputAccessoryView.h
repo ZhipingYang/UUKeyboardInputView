@@ -12,10 +12,16 @@ typedef void(^UUInputAccessoryBlock)(NSString *contentStr);
 
 @interface UUInputAccessoryView : NSObject
 
+
 + (void)showBlock:(UUInputAccessoryBlock)block;
 
-+ (void)showKeyboardType:(UIKeyboardType)type Block:(UUInputAccessoryBlock)block;
 
-+ (void)showKeyboardType:(UIKeyboardType)type content:(NSString *)content Block:(UUInputAccessoryBlock)block;
++ (void)showKeyboardType:(UIKeyboardType)type
+                   Block:(UUInputAccessoryBlock)block;
+
+
++ (void)showKeyboardType:(UIKeyboardType)type
+                 content:(NSString *)content
+                   Block:(UUInputAccessoryBlock)block;
 
 @end
