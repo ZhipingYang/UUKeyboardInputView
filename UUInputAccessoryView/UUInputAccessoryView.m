@@ -13,15 +13,15 @@
 #define UUIAV_Edge_Hori 5
 #define UUIAV_Edge_Vert 7
 #define UUIAV_Btn_W    40
-#define UUIAV_Btn_H    30
+#define UUIAV_Btn_H    35
 
 
-@interface UUInputAccessoryView ()<UITextFieldDelegate>
+@interface UUInputAccessoryView ()<UITextViewDelegate>
 {
     UUInputAccessoryBlock inputBlock;
 
     UIButton *btnBack;
-    UITextField *inputView;
+    UITextView *inputView;
     UITextField *assistView;
     UIButton *BtnSave;
     
@@ -38,37 +38,43 @@
     dispatch_once(&once, ^ {
         sharedView = [[UUInputAccessoryView alloc] init];
         
-        sharedView->btnBack = [UIButton buttonWithType:UIButtonTypeCustom];
-        sharedView->btnBack.frame = CGRectMake(0, 0, UUIAV_MAIN_W, UUIAV_MAIN_H);
-        [sharedView->btnBack addTarget:sharedView action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
-        sharedView->btnBack.backgroundColor=[UIColor clearColor];
+        UIButton *backgroundBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        backgroundBtn.frame = CGRectMake(0, 0, UUIAV_MAIN_W, UUIAV_MAIN_H);
+        [backgroundBtn addTarget:sharedView action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+        backgroundBtn.backgroundColor=[UIColor clearColor];
         
-        UIToolbar *toolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, UUIAV_MAIN_W, 44)];
-        sharedView->inputView = [[UITextField alloc]initWithFrame:CGRectMake(UUIAV_Edge_Hori, UUIAV_Edge_Vert, UUIAV_MAIN_W-UUIAV_Btn_W-4*UUIAV_Edge_Hori, UUIAV_Btn_H)];
-        sharedView->inputView.borderStyle = UITextBorderStyleRoundedRect;
-        sharedView->inputView.returnKeyType = UIReturnKeyDone;
-        sharedView->inputView.clearButtonMode = UITextFieldViewModeWhileEditing;
-        sharedView->inputView.enablesReturnKeyAutomatically = YES;
-        sharedView->inputView.delegate = sharedView;
-        [toolbar addSubview:sharedView->inputView];
-
-        sharedView->assistView = [[UITextField alloc]init];
-        sharedView->assistView.delegate = sharedView;
-        sharedView->assistView.returnKeyType = UIReturnKeyDone;
-        sharedView->assistView.enablesReturnKeyAutomatically = YES;
-        [sharedView->btnBack addSubview:sharedView->assistView];
-        sharedView->assistView.inputAccessoryView = toolbar;
+        UIToolbar *toolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, UUIAV_MAIN_W, UUIAV_Btn_H+2*UUIAV_Edge_Vert)];
+        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(UUIAV_Edge_Hori, UUIAV_Edge_Vert, UUIAV_MAIN_W-UUIAV_Btn_W-4*UUIAV_Edge_Hori, UUIAV_Btn_H)];
+        textView.returnKeyType = UIReturnKeyDone;
+        textView.enablesReturnKeyAutomatically = YES;
+        textView.delegate = sharedView;
+        textView.font = [UIFont systemFontOfSize:14];
+        textView.layer.cornerRadius = 5;
+        textView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        textView.layer.borderWidth = 0.5;
+        [toolbar addSubview:textView];
         
-        sharedView->BtnSave = [UIButton buttonWithType:UIButtonTypeCustom];
-        sharedView->BtnSave.frame = CGRectMake(UUIAV_MAIN_W-UUIAV_Btn_W-2*UUIAV_Edge_Hori, UUIAV_Edge_Vert, UUIAV_Btn_W, UUIAV_Btn_H);
-        sharedView->BtnSave.backgroundColor = [UIColor clearColor];
-        [sharedView->BtnSave setTitle:@"确定" forState:UIControlStateNormal];
-        [sharedView->BtnSave setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        [sharedView->BtnSave addTarget:sharedView action:@selector(Done) forControlEvents:UIControlEventTouchUpInside];
-        [toolbar addSubview:sharedView->BtnSave];
+        UITextField *assistTxf = [UITextField new];
+        assistTxf.returnKeyType = UIReturnKeyDone;
+        assistTxf.enablesReturnKeyAutomatically = YES;
+        [backgroundBtn addSubview:assistTxf];
+        assistTxf.inputAccessoryView = toolbar;
+        
+        UIButton *saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        saveBtn.frame = CGRectMake(UUIAV_MAIN_W-UUIAV_Btn_W-2*UUIAV_Edge_Hori, UUIAV_Edge_Vert, UUIAV_Btn_W, UUIAV_Btn_H);
+        saveBtn.backgroundColor = [UIColor clearColor];
+        [saveBtn setTitle:@"确定" forState:UIControlStateNormal];
+        [saveBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [saveBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+        [saveBtn addTarget:sharedView action:@selector(saveContent) forControlEvents:UIControlEventTouchUpInside];
+        [toolbar addSubview:saveBtn];
 
+        sharedView->btnBack = backgroundBtn;
+        sharedView->inputView = textView;
+        sharedView->assistView = assistTxf;
+        sharedView->BtnSave = saveBtn;
     });
-    CGRectGetHeight([UIScreen mainScreen].bounds);
+
     return sharedView;
 }
 
@@ -100,10 +106,12 @@
 
     inputBlock = block;
     inputView.text = content;
+    assistView.text = content;
     inputView.keyboardType = type;
     assistView.keyboardType = type;
     [assistView becomeFirstResponder];
     shouldDismiss = NO;
+    BtnSave.enabled = content.length>0;
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardDidShowNotification
                                                       object:nil
@@ -115,17 +123,11 @@
                                                   }];
 }
 
-- (void)Done
+- (void)saveContent
 {
     [inputView resignFirstResponder];
     !inputBlock ?: inputBlock(inputView.text);
     [self dismiss];
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [self Done];
-    return NO;
 }
 
 - (void)dismiss
@@ -135,5 +137,22 @@
     [btnBack removeFromSuperview];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+// textView's delegate
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"]) {
+        [self saveContent];
+        return NO;
+    }
+    return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    BtnSave.enabled = textView.text.length>0;
+}
+
 
 @end
