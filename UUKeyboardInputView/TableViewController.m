@@ -7,11 +7,13 @@
 //
 
 #import "TableViewController.h"
+#import "UUInputAccessoryView.h"
+
+static NSString *cellIdentifier = @"CellID";
 
 @interface TableViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *colorTableView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
 @end
 
@@ -19,43 +21,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.colorTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifier];
+    self.colorTableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
+    
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.view endEditing:YES];
+}
 
 #pragma mark - UITableView Datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return 12;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        cell.contentView.backgroundColor = [UIColor colorWithRed:[self randomFloat] green:[self randomFloat] blue:[self randomFloat] alpha:1];
-    }
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    cell.contentView.backgroundColor = [UIColor colorWithRed:[self randomFloat] green:[self randomFloat] blue:[self randomFloat] alpha:1];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.backgroundColor = [UIColor clearColor];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    __weak typeof(cell) weakCell = cell;
+
+    [UUInputAccessoryView showKeyboardConfige:^(UUInputConfiger * _Nonnull configer) {
+        configer.backgroundUserInterface = NO;
+        configer.content = weakCell.textLabel.text;
+    } block:^(NSString * _Nonnull contentStr) {
+        weakCell.textLabel.text = contentStr;
+    }];
 }
 
 - (CGFloat)randomFloat

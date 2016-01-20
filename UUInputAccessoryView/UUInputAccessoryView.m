@@ -41,7 +41,6 @@
         UIButton *backgroundBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         backgroundBtn.frame = CGRectMake(0, 0, UUIAV_MAIN_W, UUIAV_MAIN_H);
         [backgroundBtn addTarget:sharedView action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
-        backgroundBtn.backgroundColor=[UIColor clearColor];
         
         UIToolbar *toolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, UUIAV_MAIN_W, UUIAV_Btn_H+2*UUIAV_Edge_Vert)];
         UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(UUIAV_Edge_Hori, UUIAV_Edge_Vert, UUIAV_MAIN_W-UUIAV_Btn_W-4*UUIAV_Edge_Hori, UUIAV_Btn_H)];
@@ -64,9 +63,10 @@
         saveBtn.frame = CGRectMake(UUIAV_MAIN_W-UUIAV_Btn_W-2*UUIAV_Edge_Hori, UUIAV_Edge_Vert, UUIAV_Btn_W, UUIAV_Btn_H);
         saveBtn.backgroundColor = [UIColor clearColor];
         [saveBtn setTitle:@"确定" forState:UIControlStateNormal];
-        [saveBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        [saveBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
-        [saveBtn addTarget:sharedView action:@selector(saveContent) forControlEvents:UIControlEventTouchUpInside];
+        [saveBtn setTitle:@"取消" forState:UIControlStateSelected];
+        [saveBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [saveBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        [saveBtn addTarget:sharedView action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
         [toolbar addSubview:saveBtn];
 
         sharedView->btnBack = backgroundBtn;
@@ -78,40 +78,54 @@
     return sharedView;
 }
 
-+ (void)showBlock:(UUInputAccessoryBlock)block
++ (void)showBlock:(UUInputAccessoryBlock _Nullable)block
 {
-    [[UUInputAccessoryView sharedView] show:block
-                               keyboardType:UIKeyboardTypeDefault
-                                    content:@""];
+    UUInputConfiger *configer = [UUInputConfiger new];
+    [[UUInputAccessoryView sharedView] show:block configer:configer];
 }
 
-+ (void)showKeyboardType:(UIKeyboardType)type Block:(UUInputAccessoryBlock)block
++ (void)showKeyboardType:(UIKeyboardType)type
+                   Block:(UUInputAccessoryBlock _Nullable)block
 {
-    [[UUInputAccessoryView sharedView] show:block
-                               keyboardType:type
-                                    content:@""];
+    UUInputConfiger *configer = [UUInputConfiger new];
+    configer.keyboardType = type;
+    [[UUInputAccessoryView sharedView] show:block configer:configer];
 }
 
-+ (void)showKeyboardType:(UIKeyboardType)type content:(NSString *)content Block:(UUInputAccessoryBlock)block
++ (void)showKeyboardType:(UIKeyboardType)type
+                 content:(NSString * _Nullable)content
+                   Block:(UUInputAccessoryBlock _Nullable)block
 {
-    [[UUInputAccessoryView sharedView] show:block
-                               keyboardType:type
-                                    content:content];
+    UUInputConfiger *configer = [UUInputConfiger new];
+    configer.keyboardType = type;
+    configer.content = content;
+    [[UUInputAccessoryView sharedView] show:block configer:configer];
 }
 
-- (void)show:(UUInputAccessoryBlock)block keyboardType:(UIKeyboardType)type content:(NSString *)content
++ (void)showKeyboardConfige:(UUInputAccessoryConfige _Nullable)confige
+                      block:(UUInputAccessoryBlock _Nullable)block
+{
+    UUInputConfiger *configer = [UUInputConfiger new];
+    !confige?:confige(configer);
+    [[UUInputAccessoryView sharedView] show:block configer:configer];
+}
+
+- (void)show:(UUInputAccessoryBlock)block configer:(UUInputConfiger *_Nullable)configer
 {
     UIWindow *window=[UIApplication sharedApplication].keyWindow;
     [window addSubview:btnBack];
-
-    inputBlock = block;
-    inputView.text = content;
-    assistView.text = content;
-    inputView.keyboardType = type;
-    assistView.keyboardType = type;
-    [assistView becomeFirstResponder];
+    
     shouldDismiss = NO;
-    BtnSave.enabled = content.length>0;
+    
+    inputBlock = block;
+    inputView.text = configer.content;
+    assistView.text = configer.content;
+    inputView.keyboardType = configer.keyboardType;
+    assistView.keyboardType = configer.keyboardType;
+    BtnSave.selected = configer.content.length==0;
+    btnBack.userInteractionEnabled = configer.backgroundUserInterface;
+    btnBack.backgroundColor = configer.backgroundColor ?: [UIColor clearColor];
+    [assistView becomeFirstResponder];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardDidShowNotification
                                                       object:nil
@@ -121,12 +135,21 @@
                                                           [inputView becomeFirstResponder];
                                                       }
                                                   }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillHideNotification
+                                                      object:nil
+                                                       queue:nil
+                                                  usingBlock:^(NSNotification * _Nonnull note) {
+                                                      [self dismiss];
+                                                  }];
+
 }
 
-- (void)saveContent
+- (void)btnClick
 {
     [inputView resignFirstResponder];
-    !inputBlock ?: inputBlock(inputView.text);
+    if (!BtnSave.selected) {
+        !inputBlock ?: inputBlock(inputView.text ?: @"");
+    }
     [self dismiss];
 }
 
@@ -143,7 +166,7 @@
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     if ([text isEqualToString:@"\n"]) {
-        [self saveContent];
+        [self btnClick];
         return NO;
     }
     return YES;
@@ -151,8 +174,21 @@
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-    BtnSave.enabled = textView.text.length>0;
+    BtnSave.selected = textView.text.length==0;
 }
 
+@end
+
+
+
+@implementation UUInputConfiger
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+        self.backgroundUserInterface = YES;
+    }
+    return self;
+}
 
 @end
