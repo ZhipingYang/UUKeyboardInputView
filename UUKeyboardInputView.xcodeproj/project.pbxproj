@@ -16,6 +16,8 @@
 		B71BAA6E1A52946900819756 /* UUKeyboardInputViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B71BAA6D1A52946900819756 /* UUKeyboardInputViewTests.m */; };
 		B71BAA7E1A5296A000819756 /* UUInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = B71BAA7D1A5296A000819756 /* UUInputAccessoryView.m */; };
 		F02D2DC01C073BBD003B4FC8 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F02D2DBF1C073BBD003B4FC8 /* TableViewController.m */; };
+		F0986BED1C51151B00A41865 /* FORGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = F0986BEA1C51151B00A41865 /* FORGesture.m */; };
+		F0986BEE1C51151B00A41865 /* FORGestureTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = F0986BEC1C51151B00A41865 /* FORGestureTrack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,10 @@
 		B71BAA7D1A5296A000819756 /* UUInputAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUInputAccessoryView.m; sourceTree = "<group>"; };
 		F02D2DBE1C073BBD003B4FC8 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		F02D2DBF1C073BBD003B4FC8 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		F0986BE91C51151B00A41865 /* FORGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORGesture.h; sourceTree = "<group>"; };
+		F0986BEA1C51151B00A41865 /* FORGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORGesture.m; sourceTree = "<group>"; };
+		F0986BEB1C51151B00A41865 /* FORGestureTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FORGestureTrack.h; sourceTree = "<group>"; };
+		F0986BEC1C51151B00A41865 /* FORGestureTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FORGestureTrack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,7 @@
 		B71BAA451A52946800819756 = {
 			isa = PBXGroup;
 			children = (
+				F0986BE81C51151200A41865 /* FORGestureTrack */,
 				B71BAA7B1A5296A000819756 /* UUInputAccessoryView */,
 				B71BAA501A52946800819756 /* UUKeyboardInputView */,
 				B71BAA6A1A52946900819756 /* UUKeyboardInputViewTests */,
@@ -135,6 +142,17 @@
 				B71BAA7D1A5296A000819756 /* UUInputAccessoryView.m */,
 			);
 			path = UUInputAccessoryView;
+			sourceTree = "<group>";
+		};
+		F0986BE81C51151200A41865 /* FORGestureTrack */ = {
+			isa = PBXGroup;
+			children = (
+				F0986BE91C51151B00A41865 /* FORGesture.h */,
+				F0986BEA1C51151B00A41865 /* FORGesture.m */,
+				F0986BEB1C51151B00A41865 /* FORGestureTrack.h */,
+				F0986BEC1C51151B00A41865 /* FORGestureTrack.m */,
+			);
+			path = FORGestureTrack;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,10 +256,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B71BAA5A1A52946900819756 /* ViewController.m in Sources */,
+				F0986BEE1C51151B00A41865 /* FORGestureTrack.m in Sources */,
 				B71BAA571A52946900819756 /* AppDelegate.m in Sources */,
 				B71BAA7E1A5296A000819756 /* UUInputAccessoryView.m in Sources */,
 				F02D2DC01C073BBD003B4FC8 /* TableViewController.m in Sources */,
 				B71BAA541A52946800819756 /* main.m in Sources */,
+				F0986BED1C51151B00A41865 /* FORGesture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

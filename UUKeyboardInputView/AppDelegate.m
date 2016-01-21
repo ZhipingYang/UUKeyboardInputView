@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "FORGestureTrack.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    FORGestureTrack* track = [[FORGestureTrack alloc] initWithFrame:self.window.bounds];
+    track.dotWidth = 40;
+    [self.window addSubview:track];
+    
     return YES;
 }
 
