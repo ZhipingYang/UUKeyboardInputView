@@ -35,7 +35,7 @@ static NSString *cellIdentifier = @"CellID";
 #pragma mark - UITableView Datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 12;
+    return 22;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
