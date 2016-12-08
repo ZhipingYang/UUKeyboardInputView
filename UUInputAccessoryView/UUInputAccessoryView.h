@@ -17,6 +17,8 @@ typedef void(^UUInputAccessoryConfige) (UUInputConfiger *_Nonnull configer);
 
 @interface UUInputAccessoryView : NSObject
 
++ (void)dimiss;
+
 + (void)showBlock:(UUInputAccessoryBlock _Nullable)block;
 
 + (void)showKeyboardType:(UIKeyboardType)type
