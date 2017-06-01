@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 uyiuyao. All rights reserved.
 //
 
-#import "UUInputAccessoryView.h"
+#import "UUKeyboardInputView.h"
 
 #define UUIAV_MAIN_W    CGRectGetWidth([UIScreen mainScreen].bounds)
 #define UUIAV_MAIN_H    CGRectGetHeight([UIScreen mainScreen].bounds)
@@ -16,7 +16,7 @@
 #define UUIAV_Btn_H    35
 
 
-@interface UUInputAccessoryView ()<UITextViewDelegate>
+@interface UUKeyboardInputView ()<UITextViewDelegate>
 {
     UUInputAccessoryBlock inputBlock;
 
@@ -30,13 +30,13 @@
 }
 @end
 
-@implementation UUInputAccessoryView
+@implementation UUKeyboardInputView
 
-+ (UUInputAccessoryView*)sharedView {
++ (UUKeyboardInputView*)sharedView {
     static dispatch_once_t once;
-    static UUInputAccessoryView *sharedView;
+    static UUKeyboardInputView *sharedView;
     dispatch_once(&once, ^ {
-        sharedView = [[UUInputAccessoryView alloc] init];
+        sharedView = [[UUKeyboardInputView alloc] init];
         
         UIButton *backgroundBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         backgroundBtn.frame = CGRectMake(0, 0, UUIAV_MAIN_W, UUIAV_MAIN_H);
@@ -78,10 +78,15 @@
     return sharedView;
 }
 
++ (void)dimiss
+{
+    [[UUKeyboardInputView sharedView] dismiss];
+}
+
 + (void)showBlock:(UUInputAccessoryBlock _Nullable)block
 {
     UUInputConfiger *configer = [UUInputConfiger new];
-    [[UUInputAccessoryView sharedView] show:block configer:configer];
+    [[UUKeyboardInputView sharedView] show:block configer:configer];
 }
 
 + (void)showKeyboardType:(UIKeyboardType)type
@@ -89,7 +94,7 @@
 {
     UUInputConfiger *configer = [UUInputConfiger new];
     configer.keyboardType = type;
-    [[UUInputAccessoryView sharedView] show:block configer:configer];
+    [[UUKeyboardInputView sharedView] show:block configer:configer];
 }
 
 + (void)showKeyboardType:(UIKeyboardType)type
@@ -99,7 +104,7 @@
     UUInputConfiger *configer = [UUInputConfiger new];
     configer.keyboardType = type;
     configer.content = content;
-    [[UUInputAccessoryView sharedView] show:block configer:configer];
+    [[UUKeyboardInputView sharedView] show:block configer:configer];
 }
 
 + (void)showKeyboardConfige:(UUInputAccessoryConfige _Nullable)confige
@@ -107,7 +112,7 @@
 {
     UUInputConfiger *configer = [UUInputConfiger new];
     !confige?:confige(configer);
-    [[UUInputAccessoryView sharedView] show:block configer:configer];
+    [[UUKeyboardInputView sharedView] show:block configer:configer];
 }
 
 - (void)show:(UUInputAccessoryBlock)block configer:(UUInputConfiger *_Nullable)configer

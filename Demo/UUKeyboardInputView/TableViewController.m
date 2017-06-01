@@ -7,7 +7,7 @@
 //
 
 #import "TableViewController.h"
-#import "UUInputAccessoryView.h"
+#import "UUKeyboardInputView.h"
 
 static NSString *cellIdentifier = @"CellID";
 
@@ -53,7 +53,7 @@ static NSString *cellIdentifier = @"CellID";
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     __weak typeof(cell) weakCell = cell;
 
-    [UUInputAccessoryView showKeyboardConfige:^(UUInputConfiger * _Nonnull configer) {
+    [UUKeyboardInputView showKeyboardConfige:^(UUInputConfiger * _Nonnull configer) {
         configer.backgroundUserInterface = NO;
         configer.content = weakCell.textLabel.text;
     } block:^(NSString * _Nonnull contentStr) {
