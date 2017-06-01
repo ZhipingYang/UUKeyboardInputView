@@ -5,14 +5,14 @@ UUKeyboardInputView
 
 ### Simple application
 
-![Flipboard playing multiple GIFs](https://github.com/ZhipingYang/UUKeyboardInputView/raw/master/UUKeyboardInputViewTests/inputView.gif)
+![Flipboard playing multiple GIFs](https://github.com/ZhipingYang/UUKeyboardInputView/raw/master/Demo/UUKeyboardInputViewTests/inputView.gif)
 
 **apply with scrollview**
 
-![Flipboard playing multiple GIFs](https://github.com/ZhipingYang/UUKeyboardInputView/raw/master/UUKeyboardInputViewTests/inputView2.gif)
+![Flipboard playing multiple GIFs](https://github.com/ZhipingYang/UUKeyboardInputView/raw/master/Demo/UUKeyboardInputViewTests/inputView2.gif)
 
-## Installation
-```
+## API
+```objective-c
 + (void)showBlock:(UUInputAccessoryBlock _Nullable)block;
 
 + (void)showKeyboardType:(UIKeyboardType)type
@@ -35,7 +35,7 @@ UUKeyboardInputView
 
 ## Usage
 
-```
+```objective-c
     [UUInputAccessoryView showKeyboardConfige:^(UUInputConfiger * _Nonnull configer) {
         configer.keyboardType = UIKeyboardTypeNumberPad;
         configer.content = @"content";
@@ -47,3 +47,20 @@ UUKeyboardInputView
         
     }];
 ```
+
+## Installation
+
+UUKeyboardInputView is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "UUKeyboardInputView"
+```
+
+## Author
+
+XcodeYang, xcodeyang@gmail.com
+
+## License
+
+UUKeyboardInputView is available under the MIT license. See the LICENSE file for more info.
