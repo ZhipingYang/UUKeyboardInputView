@@ -1,0 +1,558 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11358158BC8506642121A20301B174AC /* FORGestureTrackDisplay-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C0FEA7E0BF38D28DEAE208B5217F114A /* FORGestureTrackDisplay-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21B2C8683B12E8F527BCCD41DE34BC86 /* Pods-UUKeyboardInputView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC2D62798722D560E1FC4C66EEE9044 /* Pods-UUKeyboardInputView-dummy.m */; };
+		29F0900F821934B6A63B2511ACA50080 /* FORGestureTrackDisplay-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 901C0640A5CBB1A3984B1B6FD5C92BE7 /* FORGestureTrackDisplay-dummy.m */; };
+		3E5BB200AE6A3F3A267052A7ACC201FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
+		4AFF356FE6244BD2F52008E64175B080 /* FORGestureTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 763911AF07F3327A49717F18576076FF /* FORGestureTrack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		59F894D5618299C1D4D763E8688CD565 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		6B51BD03AF6A935AAA123535AC13FC4D /* Pods-UUKeyboardInputView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FA411A4B2119E10FC3EDF34CAFF32AB2 /* Pods-UUKeyboardInputView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		788A0C65B02740E877B2E6D6E0175B59 /* FORGestureTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = A999A319C9A0136C347FA5C113BD5371 /* FORGestureTrack.m */; };
+		8FEE31E66E27BBE647A27AAAAC0E9B2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		AD431D219659190CA9A5D606CBE687F2 /* FORTrackGesture.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EEF2F778B0F9869DA93140009AA9706 /* FORTrackGesture.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC1B6573B4E19B4AE4C8E9C69D6D64D9 /* FORTrackGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = B26676F5871E285FC7FC5F9C713698D8 /* FORTrackGesture.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE9569A89CBC6E7C6798174B68ECF748 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED70C752FD5DAE4603C84ED49E990084;
+			remoteInfo = FORGestureTrackDisplay;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04A9B930DA741DF1DE3E85B26939DD39 /* Pods-UUKeyboardInputView-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UUKeyboardInputView-frameworks.sh"; sourceTree = "<group>"; };
+		0529DF39BE0345853B8084BEA379C2EE /* Pods-UUKeyboardInputView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UUKeyboardInputView.release.xcconfig"; sourceTree = "<group>"; };
+		0C3502797E1421CAF5B7D795CFF57F98 /* FORGestureTrackDisplay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FORGestureTrackDisplay.framework; path = FORGestureTrackDisplay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		519A399A80BCC5603F799577413A14BD /* FORGestureTrackDisplay.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FORGestureTrackDisplay.xcconfig; sourceTree = "<group>"; };
+		582CCC08CA847A252C731BB8A9C27731 /* Pods-UUKeyboardInputView-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UUKeyboardInputView-acknowledgements.plist"; sourceTree = "<group>"; };
+		59E11BF23DBF605DC7399DD4CA06BFB7 /* Pods-UUKeyboardInputView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UUKeyboardInputView.debug.xcconfig"; sourceTree = "<group>"; };
+		6C0F6323622B3B835FACBCD68C95E341 /* Pods-UUKeyboardInputView-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UUKeyboardInputView-resources.sh"; sourceTree = "<group>"; };
+		753A16B76F9DA747B3554DB80AE16499 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		763911AF07F3327A49717F18576076FF /* FORGestureTrack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FORGestureTrack.h; path = FORGestureTrackDisplay/FORGestureTrack.h; sourceTree = "<group>"; };
+		901C0640A5CBB1A3984B1B6FD5C92BE7 /* FORGestureTrackDisplay-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FORGestureTrackDisplay-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9EEF2F778B0F9869DA93140009AA9706 /* FORTrackGesture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FORTrackGesture.h; path = FORGestureTrackDisplay/FORTrackGesture.h; sourceTree = "<group>"; };
+		A2F1FDEFAD4937901DD9A4313A682DAC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A999A319C9A0136C347FA5C113BD5371 /* FORGestureTrack.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FORGestureTrack.m; path = FORGestureTrackDisplay/FORGestureTrack.m; sourceTree = "<group>"; };
+		ACC2D62798722D560E1FC4C66EEE9044 /* Pods-UUKeyboardInputView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UUKeyboardInputView-dummy.m"; sourceTree = "<group>"; };
+		AE43BAAA837E913198606C9D1496E258 /* Pods_UUKeyboardInputView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_UUKeyboardInputView.framework; path = "Pods-UUKeyboardInputView.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B26676F5871E285FC7FC5F9C713698D8 /* FORTrackGesture.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FORTrackGesture.m; path = FORGestureTrackDisplay/FORTrackGesture.m; sourceTree = "<group>"; };
+		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		C0FEA7E0BF38D28DEAE208B5217F114A /* FORGestureTrackDisplay-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FORGestureTrackDisplay-umbrella.h"; sourceTree = "<group>"; };
+		C7BAE916404E5D080DC458A279D022B7 /* FORGestureTrackDisplay.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FORGestureTrackDisplay.modulemap; sourceTree = "<group>"; };
+		D54AE75F0B37589D1361A7E7D9122B75 /* Pods-UUKeyboardInputView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-UUKeyboardInputView.modulemap"; sourceTree = "<group>"; };
+		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		FA411A4B2119E10FC3EDF34CAFF32AB2 /* Pods-UUKeyboardInputView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UUKeyboardInputView-umbrella.h"; sourceTree = "<group>"; };
+		FB27E60900233CE6996849103169FFCC /* Pods-UUKeyboardInputView-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UUKeyboardInputView-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FE6956963D4BE6294B8A0BD91999B736 /* FORGestureTrackDisplay-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FORGestureTrackDisplay-prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B08445F2EA25D762757F2B98BD92FA5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FEE31E66E27BBE647A27AAAAC0E9B2A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9CCE08B957FDE6F53A1E44F048CB6DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59F894D5618299C1D4D763E8688CD565 /* Foundation.framework in Frameworks */,
+				3E5BB200AE6A3F3A267052A7ACC201FE /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		380C15F69D4D7ED87BAB66EB6D4C49D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				61D2E301461A54B70F29D03B2A401678 /* FORGestureTrackDisplay */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3F3A09611FCE7AEAA5A28F6C8CA63827 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C7BAE916404E5D080DC458A279D022B7 /* FORGestureTrackDisplay.modulemap */,
+				519A399A80BCC5603F799577413A14BD /* FORGestureTrackDisplay.xcconfig */,
+				901C0640A5CBB1A3984B1B6FD5C92BE7 /* FORGestureTrackDisplay-dummy.m */,
+				FE6956963D4BE6294B8A0BD91999B736 /* FORGestureTrackDisplay-prefix.pch */,
+				C0FEA7E0BF38D28DEAE208B5217F114A /* FORGestureTrackDisplay-umbrella.h */,
+				A2F1FDEFAD4937901DD9A4313A682DAC /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FORGestureTrackDisplay";
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				438B396F6B4147076630CAEFE34282C1 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		438B396F6B4147076630CAEFE34282C1 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */,
+				B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		4FAD3303564BEE29D550BA8D95EE54AD /* Pods-UUKeyboardInputView */ = {
+			isa = PBXGroup;
+			children = (
+				753A16B76F9DA747B3554DB80AE16499 /* Info.plist */,
+				D54AE75F0B37589D1361A7E7D9122B75 /* Pods-UUKeyboardInputView.modulemap */,
+				FB27E60900233CE6996849103169FFCC /* Pods-UUKeyboardInputView-acknowledgements.markdown */,
+				582CCC08CA847A252C731BB8A9C27731 /* Pods-UUKeyboardInputView-acknowledgements.plist */,
+				ACC2D62798722D560E1FC4C66EEE9044 /* Pods-UUKeyboardInputView-dummy.m */,
+				04A9B930DA741DF1DE3E85B26939DD39 /* Pods-UUKeyboardInputView-frameworks.sh */,
+				6C0F6323622B3B835FACBCD68C95E341 /* Pods-UUKeyboardInputView-resources.sh */,
+				FA411A4B2119E10FC3EDF34CAFF32AB2 /* Pods-UUKeyboardInputView-umbrella.h */,
+				59E11BF23DBF605DC7399DD4CA06BFB7 /* Pods-UUKeyboardInputView.debug.xcconfig */,
+				0529DF39BE0345853B8084BEA379C2EE /* Pods-UUKeyboardInputView.release.xcconfig */,
+			);
+			name = "Pods-UUKeyboardInputView";
+			path = "Target Support Files/Pods-UUKeyboardInputView";
+			sourceTree = "<group>";
+		};
+		61D2E301461A54B70F29D03B2A401678 /* FORGestureTrackDisplay */ = {
+			isa = PBXGroup;
+			children = (
+				763911AF07F3327A49717F18576076FF /* FORGestureTrack.h */,
+				A999A319C9A0136C347FA5C113BD5371 /* FORGestureTrack.m */,
+				9EEF2F778B0F9869DA93140009AA9706 /* FORTrackGesture.h */,
+				B26676F5871E285FC7FC5F9C713698D8 /* FORTrackGesture.m */,
+				3F3A09611FCE7AEAA5A28F6C8CA63827 /* Support Files */,
+			);
+			name = FORGestureTrackDisplay;
+			path = FORGestureTrackDisplay;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				380C15F69D4D7ED87BAB66EB6D4C49D5 /* Pods */,
+				B64B96D0E0CA63571DF4AA685B05A51D /* Products */,
+				C4ECDAFDA7ABA2AB665550C411E418E2 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		B64B96D0E0CA63571DF4AA685B05A51D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0C3502797E1421CAF5B7D795CFF57F98 /* FORGestureTrackDisplay.framework */,
+				AE43BAAA837E913198606C9D1496E258 /* Pods_UUKeyboardInputView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4ECDAFDA7ABA2AB665550C411E418E2 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4FAD3303564BEE29D550BA8D95EE54AD /* Pods-UUKeyboardInputView */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2EC4061BB63511F81E9FCE21F303B44A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AFF356FE6244BD2F52008E64175B080 /* FORGestureTrack.h in Headers */,
+				11358158BC8506642121A20301B174AC /* FORGestureTrackDisplay-umbrella.h in Headers */,
+				AD431D219659190CA9A5D606CBE687F2 /* FORTrackGesture.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71997693C8B8A60D8C129DEABDBF9D4E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B51BD03AF6A935AAA123535AC13FC4D /* Pods-UUKeyboardInputView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		771BAFD1B571442284D17E7880722602 /* Pods-UUKeyboardInputView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01FC211C51B9C4E3CE79FB296E2CA889 /* Build configuration list for PBXNativeTarget "Pods-UUKeyboardInputView" */;
+			buildPhases = (
+				5CF84E436DC54AAAFCA7D8A2320507A2 /* Sources */,
+				B08445F2EA25D762757F2B98BD92FA5C /* Frameworks */,
+				71997693C8B8A60D8C129DEABDBF9D4E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8DFAA311027FE5EADD70C33BCDFBDC55 /* PBXTargetDependency */,
+			);
+			name = "Pods-UUKeyboardInputView";
+			productName = "Pods-UUKeyboardInputView";
+			productReference = AE43BAAA837E913198606C9D1496E258 /* Pods_UUKeyboardInputView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		ED70C752FD5DAE4603C84ED49E990084 /* FORGestureTrackDisplay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 167D718ACFD3B6772314D8A04DA2A57D /* Build configuration list for PBXNativeTarget "FORGestureTrackDisplay" */;
+			buildPhases = (
+				21175080E226EB5CFAF4725AECE3BE2F /* Sources */,
+				E9CCE08B957FDE6F53A1E44F048CB6DB /* Frameworks */,
+				2EC4061BB63511F81E9FCE21F303B44A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FORGestureTrackDisplay;
+			productName = FORGestureTrackDisplay;
+			productReference = 0C3502797E1421CAF5B7D795CFF57F98 /* FORGestureTrackDisplay.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = B64B96D0E0CA63571DF4AA685B05A51D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED70C752FD5DAE4603C84ED49E990084 /* FORGestureTrackDisplay */,
+				771BAFD1B571442284D17E7880722602 /* Pods-UUKeyboardInputView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		21175080E226EB5CFAF4725AECE3BE2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				788A0C65B02740E877B2E6D6E0175B59 /* FORGestureTrack.m in Sources */,
+				29F0900F821934B6A63B2511ACA50080 /* FORGestureTrackDisplay-dummy.m in Sources */,
+				DC1B6573B4E19B4AE4C8E9C69D6D64D9 /* FORTrackGesture.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CF84E436DC54AAAFCA7D8A2320507A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21B2C8683B12E8F527BCCD41DE34BC86 /* Pods-UUKeyboardInputView-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8DFAA311027FE5EADD70C33BCDFBDC55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FORGestureTrackDisplay;
+			target = ED70C752FD5DAE4603C84ED49E990084 /* FORGestureTrackDisplay */;
+			targetProxy = BE9569A89CBC6E7C6798174B68ECF748 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		34FE9531DA9AF2820790339988D5FF41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		67DE007F33316962D067BCD71B8A336F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0529DF39BE0345853B8084BEA379C2EE /* Pods-UUKeyboardInputView.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-UUKeyboardInputView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-UUKeyboardInputView/Pods-UUKeyboardInputView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_UUKeyboardInputView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6C25103D6EC1CFDF146649766381819A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 519A399A80BCC5603F799577413A14BD /* FORGestureTrackDisplay.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/FORGestureTrackDisplay/FORGestureTrackDisplay-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FORGestureTrackDisplay/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FORGestureTrackDisplay/FORGestureTrackDisplay.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = FORGestureTrackDisplay;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AE8A3787DDED08BDD71609AC39DD7251 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 519A399A80BCC5603F799577413A14BD /* FORGestureTrackDisplay.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/FORGestureTrackDisplay/FORGestureTrackDisplay-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FORGestureTrackDisplay/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FORGestureTrackDisplay/FORGestureTrackDisplay.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = FORGestureTrackDisplay;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C104F7F091290C3D1E248192F07FE689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		E104F543ACC504F985126D318D88C435 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59E11BF23DBF605DC7399DD4CA06BFB7 /* Pods-UUKeyboardInputView.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-UUKeyboardInputView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-UUKeyboardInputView/Pods-UUKeyboardInputView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_UUKeyboardInputView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01FC211C51B9C4E3CE79FB296E2CA889 /* Build configuration list for PBXNativeTarget "Pods-UUKeyboardInputView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E104F543ACC504F985126D318D88C435 /* Debug */,
+				67DE007F33316962D067BCD71B8A336F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		167D718ACFD3B6772314D8A04DA2A57D /* Build configuration list for PBXNativeTarget "FORGestureTrackDisplay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C25103D6EC1CFDF146649766381819A /* Debug */,
+				AE8A3787DDED08BDD71609AC39DD7251 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C104F7F091290C3D1E248192F07FE689 /* Debug */,
+				34FE9531DA9AF2820790339988D5FF41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

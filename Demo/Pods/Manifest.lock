@@ -1,0 +1,12 @@
+PODS:
+  - FORGestureTrackDisplay (0.1.0)
+
+DEPENDENCIES:
+  - FORGestureTrackDisplay
+
+SPEC CHECKSUMS:
+  FORGestureTrackDisplay: a0c14d65cbe49ee54dbc1ca15cfd14d905e0cf79
+
+PODFILE CHECKSUM: 9e8379b6c13be6c88ba2146575ca1ff3ed653294
+
+COCOAPODS: 1.2.1
