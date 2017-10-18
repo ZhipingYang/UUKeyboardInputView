@@ -23,7 +23,7 @@
         configer.content = content;
         configer.backgroundColor = color;
         
-    }block:^(NSString * _Nonnull contentStr) {
+    } block:^(NSString * _Nonnull contentStr) {
         // 回调事件处理
         if (contentStr.length == 0) return ;
         [sender setTitle:contentStr forState:UIControlStateNormal];

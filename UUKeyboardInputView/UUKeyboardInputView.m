@@ -10,70 +10,30 @@
 
 #define UUIAV_SCREEN_WIDTH    CGRectGetWidth([UIScreen mainScreen].bounds)
 #define UUIAV_SCREEN_HEIGHT    CGRectGetHeight([UIScreen mainScreen].bounds)
-#define UUIAV_Edge_Hori 5
-#define UUIAV_Edge_Vert 7
-#define UUIAV_Btn_W    40
-#define UUIAV_Btn_H    35
-
 
 @interface UUKeyboardInputView ()<UITextViewDelegate>
 
-@property (nonatomic, copy) UUInputViewResultBlock inputBlock;
-@property (nonatomic, strong) UIButton *btnBack;
+@property (nonatomic, copy) UUInputViewResultBlock finishBlock;
+
 @property (nonatomic, strong) UITextView *inputView;
-@property (nonatomic, strong) UITextField *assistView;
 @property (nonatomic, strong) UIButton *btnSave;
 @property (nonatomic, strong) UIView *toolbar;
+
+@property (nonatomic, strong) UIButton *assistDismissButton;
+@property (nonatomic, strong) UITextField *assistInputView;
 
 @end
 
 @implementation UUKeyboardInputView
 
 + (UUKeyboardInputView*)sharedView {
+    
     static dispatch_once_t once;
+    
     static UUKeyboardInputView *sharedView;
+    
     dispatch_once(&once, ^ {
         sharedView = [[UUKeyboardInputView alloc] init];
-        
-        UIButton *backgroundBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [backgroundBtn addTarget:sharedView action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
-        
-        UIView *toolbar = [[UIView alloc] init];
-        toolbar.backgroundColor = [UIColor whiteColor];
-        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1000, 0.5)];
-        line.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1];
-        [toolbar addSubview:line];
-        
-        UITextView *textView = [[UITextView alloc] init];
-        textView.returnKeyType = UIReturnKeyDone;
-        textView.enablesReturnKeyAutomatically = YES;
-        textView.delegate = sharedView;
-        textView.font = [UIFont systemFontOfSize:15];
-        textView.layer.cornerRadius = 5;
-        textView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        textView.layer.borderWidth = 1/[UIScreen mainScreen].scale;
-        [toolbar addSubview:textView];
-        
-        UITextField *assistTxf = [UITextField new];
-        assistTxf.returnKeyType = UIReturnKeyDone;
-        assistTxf.enablesReturnKeyAutomatically = YES;
-        [backgroundBtn addSubview:assistTxf];
-        assistTxf.inputAccessoryView = toolbar;
-        
-        UIButton *saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        saveBtn.backgroundColor = [UIColor clearColor];
-        [saveBtn setTitle:@"确定" forState:UIControlStateNormal];
-        [saveBtn setTitle:@"取消" forState:UIControlStateSelected];
-        [saveBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        [saveBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
-        [saveBtn addTarget:sharedView action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
-        [toolbar addSubview:saveBtn];
-        
-        sharedView.toolbar = toolbar;
-        sharedView.btnBack = backgroundBtn;
-        sharedView.inputView = textView;
-        sharedView.assistView = assistTxf;
-        sharedView.btnSave = saveBtn;
     });
     return sharedView;
 }
@@ -85,15 +45,14 @@
 
 + (void)showBlock:(UUInputViewResultBlock)block
 {
-    UUInputConfiger *configer = [UUInputConfiger new];
-    [[UUKeyboardInputView sharedView] show:block configer:configer];
+    [[UUKeyboardInputView sharedView] configer:[UUInputConfiger new] show:block];
 }
 
 + (void)showKeyboardType:(UIKeyboardType)type block:(UUInputViewResultBlock)block
 {
     UUInputConfiger *configer = [UUInputConfiger new];
     configer.keyboardType = type;
-    [[UUKeyboardInputView sharedView] show:block configer:configer];
+    [[UUKeyboardInputView sharedView] configer:configer show:block];
 }
 
 + (void)showKeyboardType:(UIKeyboardType)type content:(NSString *)content block:(UUInputViewResultBlock)block
@@ -101,45 +60,58 @@
     UUInputConfiger *configer = [UUInputConfiger new];
     configer.keyboardType = type;
     configer.content = content;
-    [[UUKeyboardInputView sharedView] show:block configer:configer];
+    [[UUKeyboardInputView sharedView] configer:configer show:block];
 }
 
 + (void)showKeyboardConfige:(UUInputAccessoryConfige)confige block:(UUInputViewResultBlock)block
 {
     UUInputConfiger *configer = [UUInputConfiger new];
     !confige?:confige(configer);
-    [[UUKeyboardInputView sharedView] show:block configer:configer];
+    [[UUKeyboardInputView sharedView] configer:configer show:block];
 }
 
-- (void)show:(UUInputViewResultBlock)block configer:(UUInputConfiger *_Nullable)configer
+- (void)configer:(UUInputConfiger *_Nullable)configer show:(UUInputViewResultBlock)block
 {
-    UIWindow *window=[UIApplication sharedApplication].delegate.window;
-    self.btnBack.frame = window.bounds;
-    self.btnBack.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [window addSubview:self.btnBack];
+    [self initBaseElements];
+    
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+    self.assistDismissButton.frame = window.bounds;
+    self.assistDismissButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [window addSubview:self.assistDismissButton];
     
     [self updateLayoutAtBegin:YES];
     
-    self.inputBlock = block;
+    self.finishBlock = block;
     self.inputView.text = configer.content;
-    self.assistView.text = configer.content;
+    self.assistInputView.text = configer.content;
     self.inputView.keyboardType = configer.keyboardType;
-    self.assistView.keyboardType = configer.keyboardType;
+    self.assistInputView.keyboardType = configer.keyboardType;
     self.btnSave.selected = configer.content.length==0;
-    self.btnBack.userInteractionEnabled = configer.backgroundUserInterface;
-    self.btnBack.backgroundColor = configer.backgroundColor ?: [UIColor clearColor];
-    [self.assistView becomeFirstResponder];
+    self.assistDismissButton.userInteractionEnabled = configer.backgroundUserInterface;
+    self.assistDismissButton.backgroundColor = configer.backgroundColor ?: [UIColor clearColor];
+    
+    self.assistInputView.inputAccessoryView = _toolbar;
+    [self.assistInputView becomeFirstResponder];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardDidShowNotification
                                                       object:nil
                                                        queue:nil
                                                   usingBlock:^(NSNotification * _Nonnull note) {
-                                                      if (self.btnBack.window && self.assistView.isFirstResponder) {
+                                                      if (self.assistDismissButton.window && self.assistInputView.isFirstResponder) {
                                                           [self.inputView becomeFirstResponder];
-                                                          [self updateLayoutAtBegin:NO];
+                                                          [self.inputView scrollRangeToVisible:NSMakeRange(self.inputView.text.length, 1)];
+//                                                          [self updateLayoutAtBegin:NO];
                                                       }
                                                   }];
     
+    //note: scroll to dismiss keyboard
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardDidHideNotification
+                                                      object:nil
+                                                       queue:nil
+                                                  usingBlock:^(NSNotification * _Nonnull note) {
+                                                      [self cleanBaseElements];
+                                                  }];
+
     //note: scroll to dismiss keyboard
     [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillHideNotification
                                                       object:nil
@@ -149,16 +121,17 @@
                                                           [self dismiss];
                                                       }
                                                   }];
+
 }
 
 - (void)updateLayoutAtBegin:(BOOL)atBeigin
 {
     CGFloat const saveButtonWidth = 60;
     CGFloat const edge = 4;
-
+    
     CGFloat height = MAX(40, _inputView.contentSize.height);
     height = MIN(height, 80);
-    height = atBeigin ? 40:height;
+//    height = atBeigin ? 40:height;
     [UIView animateWithDuration:atBeigin ? 0:0.2 animations:^{
         _btnSave.frame = CGRectMake(UUIAV_SCREEN_WIDTH-saveButtonWidth, (height-40)/2.0, saveButtonWidth, 40);
         _toolbar.frame = CGRectMake(0, 40-height, UUIAV_SCREEN_WIDTH, height);
@@ -166,11 +139,11 @@
     }];
 }
 
-- (void)btnClick
+- (void)saveButtonAction
 {
     [self.inputView resignFirstResponder];
     if (!self.btnSave.selected) {
-        !self.inputBlock ?: self.inputBlock(self.inputView.text ?: @"");
+        !self.finishBlock ?: self.finishBlock(self.inputView.text ?: @"");
     }
     [self dismiss];
 }
@@ -178,7 +151,7 @@
 - (void)dismiss
 {
     [self.inputView resignFirstResponder];
-    [self.btnBack removeFromSuperview];
+    [self.assistDismissButton removeFromSuperview];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -186,7 +159,7 @@
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     if ([text isEqualToString:@"\n"]) {
-        [self btnClick];
+        [self saveButtonAction];
         return NO;
     }
     return YES;
@@ -196,6 +169,63 @@
 {
     [self updateLayoutAtBegin:NO];
     self.btnSave.selected = textView.text.length==0;
+}
+
+- (void)initBaseElements
+{
+    UIButton *backgroundBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backgroundBtn addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIView *toolbar = [[UIView alloc] init];
+    toolbar.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1000, 0.5)];
+    line.backgroundColor = [UIColor lightGrayColor];
+    [toolbar addSubview:line];
+    
+    UITextView *textView = [[UITextView alloc] init];
+    textView.returnKeyType = UIReturnKeyDone;
+    textView.enablesReturnKeyAutomatically = YES;
+    textView.delegate = self;
+    textView.font = [UIFont systemFontOfSize:15];
+    textView.layer.cornerRadius = 5;
+    textView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    textView.layer.borderWidth = 1/[UIScreen mainScreen].scale;
+    [toolbar addSubview:textView];
+    
+    UITextField *assistTxf = [UITextField new];
+    assistTxf.returnKeyType = UIReturnKeyDone;
+    assistTxf.enablesReturnKeyAutomatically = YES;
+    [backgroundBtn addSubview:assistTxf];
+    
+    UIButton *saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    saveBtn.backgroundColor = [UIColor clearColor];
+    [saveBtn setTitle:@"确定" forState:UIControlStateNormal];
+    [saveBtn setTitle:@"取消" forState:UIControlStateSelected];
+    [saveBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [saveBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+    [saveBtn addTarget:self action:@selector(saveButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    [toolbar addSubview:saveBtn];
+    
+    self.toolbar = toolbar;
+    self.assistDismissButton = backgroundBtn;
+    self.inputView = textView;
+    self.assistInputView = assistTxf;
+    self.btnSave = saveBtn;
+}
+
+- (void)cleanBaseElements
+{
+    [self.toolbar removeFromSuperview];
+    [self.assistDismissButton removeFromSuperview];
+    [self.inputView removeFromSuperview];
+    [self.assistInputView removeFromSuperview];
+    [self.btnSave removeFromSuperview];
+    _toolbar = nil;
+    _assistDismissButton = nil;
+    _inputView = nil;
+    _assistInputView = nil;
+    _btnSave = nil;
+    _finishBlock = nil;
 }
 
 @end
