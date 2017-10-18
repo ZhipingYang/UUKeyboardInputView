@@ -13,24 +13,25 @@ UUKeyboardInputView
 
 ## API
 ```objective-c
-+ (void)showBlock:(UUInputAccessoryBlock _Nullable)block;
+
++ (void)showBlock:(UUInputViewResultBlock)block;
 
 + (void)showKeyboardType:(UIKeyboardType)type
-                   Block:(UUInputAccessoryBlock _Nullable)block;
+                   block:(UUInputViewResultBlock)block;
 
 + (void)showKeyboardType:(UIKeyboardType)type
-                 content:(NSString * _Nullable)content
-                   Block:(UUInputAccessoryBlock _Nullable)block;
+                 content:(nullable NSString *)content
+                   block:(UUInputViewResultBlock)block;
 
 // more flexible config
-+ (void)showKeyboardConfige:(UUInputAccessoryConfige _Nullable)confige
-                      block:(UUInputAccessoryBlock _Nullable)block;
++ (void)showKeyboardConfige:(nullable UUInputAccessoryConfige)confige
+                      block:(UUInputViewResultBlock)block;
 ```
 
-####UIKeyboardType
- - UIKeyboardTypeDefault,              
+#### UIKeyboardType
+ - UIKeyboardTypeDefault,
  - UIKeyboardTypeNumbersAndPunctuation,
- - UIKeyboardTypeNumberPad,            
+ - UIKeyboardTypeNumberPad,
  - UIKeyboardTypeNamePhonePad ...
 
 ## Usage
@@ -40,8 +41,8 @@ UUKeyboardInputView
         configer.keyboardType = UIKeyboardTypeNumberPad;
         configer.content = @"content";
         configer.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
-        
-    }block:^(NSString * _Nonnull contentStr) {
+
+    } block:^(NSString * _Nonnull contentStr) {
         // code
         if (contentStr.length == 0) return ;
         

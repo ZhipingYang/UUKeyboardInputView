@@ -4,7 +4,7 @@ s.summary      = 'assist custom views respond keyboard as inputview liked'
 s.description      = <<-DESC
 UUKeyboardInputView helps some views,like button、cell、segment, which cann't respond those inputView as textField or texeView them do.
                        DESC
-s.version      = '0.1.2'
+s.version      = '0.1.3'
 s.homepage     = "https://github.com/ZhipingYang/UUKeyboardInputView"
 s.license      = 'MIT'
 s.authors      = { 'ZhipingYang' => 'XcodeYang@gmail.com' }
