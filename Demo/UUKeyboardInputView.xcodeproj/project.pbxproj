@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		655307781EE021ED00ADC3CF /* UUKeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 655307771EE021ED00ADC3CF /* UUKeyboardInputView.m */; };
+		65323D1B1F97BE7F004ABDF3 /* UUKeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65323D1A1F97BE78004ABDF3 /* UUKeyboardInputView.m */; };
 		B646589AB08136686C4E304A /* Pods_UUKeyboardInputView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FFF35E232734D19700DBC5 /* Pods_UUKeyboardInputView.framework */; };
 		B71BAA541A52946800819756 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B71BAA531A52946800819756 /* main.m */; };
 		B71BAA571A52946900819756 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B71BAA561A52946900819756 /* AppDelegate.m */; };
@@ -32,8 +32,8 @@
 /* Begin PBXFileReference section */
 		22DE7ADD4CE166F14F374D7E /* Pods-UUKeyboardInputView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UUKeyboardInputView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UUKeyboardInputView/Pods-UUKeyboardInputView.debug.xcconfig"; sourceTree = "<group>"; };
 		560D80878AE6F23BC34BBED3 /* Pods-UUKeyboardInputView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UUKeyboardInputView.release.xcconfig"; path = "Pods/Target Support Files/Pods-UUKeyboardInputView/Pods-UUKeyboardInputView.release.xcconfig"; sourceTree = "<group>"; };
-		655307761EE021ED00ADC3CF /* UUKeyboardInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UUKeyboardInputView.h; path = ../UUKeyboardInputView/UUKeyboardInputView.h; sourceTree = "<group>"; };
-		655307771EE021ED00ADC3CF /* UUKeyboardInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UUKeyboardInputView.m; path = ../UUKeyboardInputView/UUKeyboardInputView.m; sourceTree = "<group>"; };
+		65323D191F97BE78004ABDF3 /* UUKeyboardInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UUKeyboardInputView.h; sourceTree = "<group>"; };
+		65323D1A1F97BE78004ABDF3 /* UUKeyboardInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UUKeyboardInputView.m; sourceTree = "<group>"; };
 		B1FFF35E232734D19700DBC5 /* Pods_UUKeyboardInputView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UUKeyboardInputView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71BAA4E1A52946800819756 /* UUKeyboardInputView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UUKeyboardInputView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71BAA521A52946800819756 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,14 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		655307721EE01E7D00ADC3CF /* Class */ = {
+		65323D181F97BE78004ABDF3 /* UUKeyboardInputView */ = {
 			isa = PBXGroup;
 			children = (
-				655307761EE021ED00ADC3CF /* UUKeyboardInputView.h */,
-				655307771EE021ED00ADC3CF /* UUKeyboardInputView.m */,
+				65323D191F97BE78004ABDF3 /* UUKeyboardInputView.h */,
+				65323D1A1F97BE78004ABDF3 /* UUKeyboardInputView.m */,
 			);
-			name = Class;
-			path = ../../UUInputAccessoryView;
+			name = UUKeyboardInputView;
+			path = ../../UUKeyboardInputView;
 			sourceTree = "<group>";
 		};
 		8CD4AE3D1FDCF2AA5AEFCEEB /* Pods */ = {
@@ -113,7 +113,7 @@
 		B71BAA501A52946800819756 /* UUKeyboardInputView */ = {
 			isa = PBXGroup;
 			children = (
-				655307721EE01E7D00ADC3CF /* Class */,
+				65323D181F97BE78004ABDF3 /* UUKeyboardInputView */,
 				B71BAA551A52946900819756 /* AppDelegate.h */,
 				B71BAA561A52946900819756 /* AppDelegate.m */,
 				B71BAA581A52946900819756 /* ViewController.h */,
@@ -315,7 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				655307781EE021ED00ADC3CF /* UUKeyboardInputView.m in Sources */,
+				65323D1B1F97BE7F004ABDF3 /* UUKeyboardInputView.m in Sources */,
 				B71BAA5A1A52946900819756 /* ViewController.m in Sources */,
 				B71BAA571A52946900819756 /* AppDelegate.m in Sources */,
 				F02D2DC01C073BBD003B4FC8 /* TableViewController.m in Sources */,

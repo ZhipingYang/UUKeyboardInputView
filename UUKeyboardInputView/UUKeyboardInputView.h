@@ -7,30 +7,32 @@
 //
 
 #import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
 @class UUInputConfiger;
 
-// Block
-typedef void(^UUInputAccessoryBlock) (NSString * _Nonnull contentStr);
+typedef void(^UUInputViewResultBlock) (NSString * _Nullable contentStr);
 
-typedef void(^UUInputAccessoryConfige) (UUInputConfiger *_Nonnull configer);
+typedef void(^UUInputAccessoryConfige) (UUInputConfiger *configer);
 
 
 @interface UUKeyboardInputView : NSObject
 
 + (void)dimiss;
 
-+ (void)showBlock:(UUInputAccessoryBlock _Nullable)block;
++ (void)showBlock:(UUInputViewResultBlock)block;
 
 + (void)showKeyboardType:(UIKeyboardType)type
-                   Block:(UUInputAccessoryBlock _Nullable)block;
+                   block:(UUInputViewResultBlock)block;
 
 + (void)showKeyboardType:(UIKeyboardType)type
-                 content:(NSString * _Nullable)content
-                   Block:(UUInputAccessoryBlock _Nullable)block;
+                 content:(nullable NSString *)content
+                   block:(UUInputViewResultBlock)block;
 
 // more flexible config
-+ (void)showKeyboardConfige:(UUInputAccessoryConfige _Nullable)confige
-                      block:(UUInputAccessoryBlock _Nullable)block;
++ (void)showKeyboardConfige:(nullable UUInputAccessoryConfige)confige
+                      block:(UUInputViewResultBlock)block;
 
 @end
 
@@ -38,12 +40,15 @@ typedef void(^UUInputAccessoryConfige) (UUInputConfiger *_Nonnull configer);
 @interface UUInputConfiger : NSObject
 
 // default UIKeyboardTypeDefault
-@property (assign, nonatomic) UIKeyboardType keyboardType;
+@property (nonatomic) UIKeyboardType keyboardType;
 // default nil
 @property (copy, nonatomic, nullable) NSString *content;
 // default YES
-@property (assign, nonatomic) BOOL backgroundUserInterface;
+@property (nonatomic) BOOL backgroundUserInterface;
 // default clearColor
 @property (strong, nonatomic, nullable) UIColor *backgroundColor;
 
 @end
+
+NS_ASSUME_NONNULL_END
+

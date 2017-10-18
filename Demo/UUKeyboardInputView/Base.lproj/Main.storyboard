@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zyo-GK-kPj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zyo-GK-kPj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -71,7 +71,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default,默认类型(带backgroundColor)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVb-fW-YvV">
-                                <rect key="frame" x="25" y="72" width="243.5" height="17"/>
+                                <rect key="frame" x="25" y="72" width="244" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -89,7 +89,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEp-Ld-9cs">
-                                <rect key="frame" x="75" y="594" width="225" height="44"/>
+                                <rect key="frame" x="75.5" y="594" width="224" height="44"/>
                                 <color key="backgroundColor" red="0.25098039220000001" green="0.50196078430000002" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="AGO-Fm-bCa"/>
@@ -116,8 +116,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SVb-fW-YvV" secondAttribute="trailing" constant="20" symbolic="YES" id="40A-i2-sur"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wb4-77-808" secondAttribute="trailing" constant="8" id="4E8-85-Ax4"/>
                             <constraint firstItem="SVb-fW-YvV" firstAttribute="leading" secondItem="wb4-77-808" secondAttribute="leading" id="8HN-TI-PuH"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="afo-jn-rzw" secondAttribute="trailing" constant="20" symbolic="YES" id="Anj-Ep-Wpx"/>
                             <constraint firstItem="LTh-4G-fOC" firstAttribute="leading" secondItem="FhJ-dE-eYQ" secondAttribute="leading" id="CgY-RU-Ujb"/>
                             <constraint firstItem="mc5-ba-JAn" firstAttribute="top" secondItem="afo-jn-rzw" secondAttribute="bottom" constant="8" id="Cwq-e9-IER"/>
                             <constraint firstItem="mc5-ba-JAn" firstAttribute="top" secondItem="wb4-77-808" secondAttribute="bottom" constant="44" id="Gai-5F-xG5"/>
@@ -128,6 +130,7 @@
                             <constraint firstItem="wb4-77-808" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="33" id="TrG-ik-kaV"/>
                             <constraint firstItem="mc5-ba-JAn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="9" id="UJF-Dh-Gmr"/>
                             <constraint firstItem="VEp-Ld-9cs" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Uhi-eS-RQI"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LTh-4G-fOC" secondAttribute="trailing" constant="20" symbolic="YES" id="WSR-jW-I8m"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="VEp-Ld-9cs" secondAttribute="bottom" constant="29" id="eXq-0l-pEn"/>
                             <constraint firstItem="wb4-77-808" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="9" id="hsP-ve-pwW"/>
                             <constraint firstItem="VEp-Ld-9cs" firstAttribute="top" secondItem="zDR-gf-sUb" secondAttribute="bottom" constant="8" id="nLH-av-gQf"/>
@@ -186,7 +189,7 @@
             <objects>
                 <navigationController id="Zyo-GK-kPj" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oIL-vX-bTa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
